@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/shenli/mvn/repo/m2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar" />
+    <context id="sqlserverTables" targetRuntime="MyBatis3">
+        <!-- 生成的pojo，将implements Serializable -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/springlesson9" userId="root" password="">
+        </jdbcConnection>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true，把JDBC DECIMAL
+            和 NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
+            也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下 -->
+        <!--<javaModelGenerator targetPackage="com.joey.mybaties.test.pojo" targetProject="MAVEN"> -->
+        <javaModelGenerator targetPackage="edu.ldcollege.domain" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--对应的mapper.xml文件 -->
+        <sqlMapGenerator targetPackage="mappers" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 对应的Mapper接口类文件 -->
+        <javaClientGenerator type="ANNOTATEDMAPPER"
+                             targetPackage="edu.ldcollege.mapping" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--<table tableName="ld_home_work" domainObjectName="LdHomeWork"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="ld_home_work_fb" domainObjectName="LdHomeWorkFB"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="course" domainObjectName="Course"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="ld_class" domainObjectName="LdClass"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+        <table tableName="user2class" domainObjectName="User2Class"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="class2course" domainObjectName="Class2course"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="province" domainObjectName="Province"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="city" domainObjectName="City"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>-->
+
+        <table tableName="sys_user" domainObjectName="SysUser"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <!--
+        <table tableName="sys_role" domainObjectName="SysRole"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="sys_user_role" domainObjectName="SysUserRole"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="sys_permission" domainObjectName="SysPermission"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="playCode" domainObjectName="PlayCode"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="sys_role_permission" domainObjectName="SysRolePermission"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="material" domainObjectName="Material"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="machineCode" domainObjectName="MachineCode"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="syllabus" domainObjectName="Syllabus"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="test" domainObjectName="Test"
+               enableCountByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>-->
+
+
+    </context>
+</generatorConfiguration>

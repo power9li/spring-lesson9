@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <!--  bootstrap-table -->
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/bootstrap-table-locale-all.min.js"></script>
+    <script src="js/fileinput.js"></script>
+	<link  href="css/fileinput.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">
+				<!-- LeaderUs 课程作业 <small>作业一览表</small> -->
+			</h1>
+			<ol class="breadcrumb">
+				<li class="active"><i class="fa fa-dashboard"></i>
+					<button class="btn btn-info" id="uploadBtn"><span class="glyphicon glyphicon-open"/>&nbsp;上传作业</button>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="uploadDiv" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">作业上传</h4>
+				</div>
+				<div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="span12">
+
+                                    <fieldset>
+										<form method="POST" id="uploadForm" enctype="multipart/form-data" action="/ldhomework/upload" data-toggle="validator">
+
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="userId">学生ID:</label>-->
+                                                <!--<input type="text" name="userId" class="form-control" id="userId" required>-->
+                                            <!--</div>-->
+                                            <div class="form-group">
+                                                <label for="classId">班级ID:</label>
+                                                <!--<input type="text" name="classId" class="form-control" id="classId" required>-->
+												<select name="classId" id="classId" required>
+
+												</select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lessonId">课程编号:</label>
+                                                <!--<input type="text" name="lessonId" class="form-control" id="lessonId" required>-->
+												<select name="lessonId" id="lessonId" required>
+
+												</select>
+                                            </div>
+
+											<div class="form-group">
+												<label class="control-label">上传作业PPT或PDF文件</label>
+												<input id="workFile" name="file" type="file" multiple class="file-loading" required>
+											</div>
+                                            <button class="btn btn-success" type="button" id="uploadSubmitBtn">提交</button>
+
+                                        </form>
+
+                                    </fieldset>
+
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div>
+		<table data-toggle="table" id="ldHomeWorkTb">
+			<thead>
+				<tr>
+					<th data-field="id">作业ID</th>
+					<!--<th data-field="userId">学员ID</th>-->
+					<th data-field="classId">班级ID</th>
+					<th data-field="lessionId">课程编号</th>
+					<th data-field="homeworkFileName">作业文件名</th>
+					<th data-field="createDate">上传时间</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+
+</body>
+<script src="ldhomework-list.js"></script>
+
+</html>
